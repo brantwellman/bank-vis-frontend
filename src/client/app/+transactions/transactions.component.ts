@@ -24,7 +24,7 @@ export class TransactionsComponent implements OnInit {
   }
 
   getTransactions() {
-    this.transactionsService.getTransactions().subscribe(data => {
+    this.transactionsService.getTransactions().subscribe((data: any) => {
       this.transactions = data;
     });
   }

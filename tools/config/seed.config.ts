@@ -120,7 +120,7 @@ export class SeedConfig {
    * `index.html`.
    * @type {string}
    */
-  APP_TITLE = 'Welcome to angular2-seed!';
+  APP_TITLE = 'Bank Vis';
 
   /**
    * The base folder of the applications source files.
@@ -310,7 +310,14 @@ export class SeedConfig {
       '*': `node_modules/*`
     },
     packages: {
-      rxjs: { defaultExtension: false }
+      rxjs: { defaultExtension: false },
+      app: {
+        format: 'register',
+        defaultExtension: 'js'
+      }
+    },
+    map: {
+      moment: 'moment/moment.js'
     }
   };
 
