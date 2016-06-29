@@ -1,13 +1,13 @@
 <div class="container text-center">
   <h1>Transactions</h1>
-  <table class="table">
-    <thead>
-      <th>Date</th>
-      <th>Category</th>
-      <th>Amount</th>
+  <table class="table table-striped table-bordered">
+    <thead class="thead-default">
+      <th class="text-center">Date</th>
+      <th class="text-center">Category</th>
+      <th class="text-center">Amount</th>
     </thead>
     <tbody>
-      <tr *ngFor="let trans of transactions, let o = odd" [ngClass]="{highlight: o}">
+      <tr *ngFor="let trans of transactions">
         <td>{{trans.times.when_recorded | date}}</td>
         <td>{{trans.categories[0].folder}}</td>
         <td>{{format(trans.amounts.amount)}}</td>

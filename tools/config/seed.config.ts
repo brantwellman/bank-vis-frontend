@@ -293,7 +293,8 @@ export class SeedConfig {
     packageConfigPaths: [
       `node_modules/*/package.json`,
       `node_modules/**/package.json`,
-      `node_modules/@angular/*/package.json`
+      `node_modules/@angular/*/package.json`,
+      `${this.APP_BASE}node_modules/@ngrx/store/package.json`
     ],
     paths: {
       [this.BOOTSTRAP_MODULE]: `${this.APP_BASE}${this.BOOTSTRAP_MODULE}`,
@@ -336,7 +337,8 @@ export class SeedConfig {
     defaultJSExtensions: true,
     packageConfigPaths: [
       join(this.PROJECT_ROOT, 'node_modules', '*', 'package.json'),
-      join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json')
+      join(this.PROJECT_ROOT, 'node_modules', '@angular', '*', 'package.json'),
+      join(this.PROJECT_ROOT, 'node_modules', '@ngrx/store/package.json')
     ],
     paths: {
       [`${this.TMP_DIR}/*`]: `${this.TMP_DIR}/*`,
@@ -377,6 +379,14 @@ export class SeedConfig {
       },
       'rxjs': {
         defaultExtension: 'js'
+      },
+      '@ngrx/core': {
+          main: 'index.js',
+          format: 'cjs'
+      },
+      '@ngrx/store': {
+          main: 'index.js',
+          format: 'cjs'
       }
     }
   };

@@ -1,0 +1,23 @@
+<div class="container text-center">
+  <div class="container">
+    <form #f="ngForm" novalidate>
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" #name="ngModel">
+        <label>Last Name</label>
+        <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName" #name="ngModel">
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="user.email" #name="ngModel">
+        <label>Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #name="ngModel">
+        <label>Password Confirmation</label>
+        <input type="password" class="form-control" name="passwordConfirmation" [(ngModel)]="user.passwordConfirmation" #name="ngModel">
+        <label>Firebase Url</label>
+        <input type="text" class="form-control" name="firebaseUrl" [(ngModel)]="user.firebaseUrl" #name="ngModel">
+        <label>Firebase Token</label>
+        <input type="text" class="form-control" name="firebaseToken" [(ngModel)]="user.firebaseToken" #name="ngModel">
+      </div>
+      <button type="submit" (click)="onSubmit(f.value)" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>

@@ -1,31 +1,36 @@
 import { Component } from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
+import { IUser } from '../../shared/interfaces/user.interface';
 
 @Component({
   moduleId: module.id,
-  selector: 'user-login',
-  templateUrl: 'user-login.html',
-  styleUrls: ['user-login.css'],
+  selector: 'user-new',
+  templateUrl: 'user-new.html',
+  styleUrls: ['user-new.css'],
   providers: [UserService],
   directives: [ROUTER_DIRECTIVES],
 })
 
-export class UserLoginComponent {
-  public user: any;
+export class UserNewComponent {
+  public user: IUser;
   public form: any;
 
   constructor(private router: Router, public userService: UserService) {
     this.user = {
+      firstName: '',
+      lastName: '',
       email: '',
-      password: ''
+      password: '',
+      passwordConfirmation: '',
+      firebaseUrl: '',
+      firebaseToken: ''
     }
   }
 
-  public onSubmit(form: any, valid: boolean): void {
-    this.userService.login(form).subscribe((data: any) => {
-      this.userService.setCurrentUser(data);
-      this.router.navigate(['/transactions']);
+  public onSubmit(form: any): void {
+    this.userService.create(form).subscribe((data: any) => {
+      console.log(data);
     }, (error) => {
       console.log(error);
     });
