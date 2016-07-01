@@ -54,11 +54,11 @@ export class TransactionsShowComponent implements OnInit {
     this.dateClickCount++;
     if (this.dateClickCount % 2) {
       this.transactions.sort((prev:any, current:any) => {
-        return current.times.when_recorded - prev.times.when_recorded;
+        return prev.times.when_recorded - current.times.when_recorded;
       });
     } else {
       this.transactions.sort((prev:any, current:any) => {
-        return prev.times.when_recorded - current.times.when_recorded;
+        return current.times.when_recorded - prev.times.when_recorded;
       });
     }
   }
