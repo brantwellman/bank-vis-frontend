@@ -20,4 +20,9 @@ export class TransactionsService implements OnInit {
     let body: any = formData.transactions;
     return this.http.put(url, body).map((res) => res.json());
   }
+
+  public getSortedTransactions(attr: string, firebaseUrl:string, month:string, firebaseToken:string): Observable<any> {
+    let url: string = `${firebaseUrl}transactions/${month}.json?orderBy=${attr}/auth=${firebaseToken}`;
+    return this.http.get(url).map((res) => res.json());
+  }
 }
