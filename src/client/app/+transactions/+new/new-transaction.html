@@ -1,0 +1,13 @@
+<div class="container text-center">
+  <div class="container">
+    <form #f="ngForm" novalidate>
+      <div class="form-group">
+        <label>Month</label>
+        <input type="text" class="form-control" name="month" [(ngModel)]="form.month" #name="ngModel">
+        <label>Transactions as Json</label>
+        <textarea cols=50 rows=10 type="text" class="form-control" name="transactions" [(ngModel)]="form.transactions" #name="ngModel"></textarea>
+      </div>
+      <button type="submit" (click)="onSubmit(f.value)" class="btn btn-default">Submit</button>
+    </form>
+  </div>
+</div>

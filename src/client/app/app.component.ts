@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { NgIf } from '@angular/common';
+import { ROUTER_DIRECTIVES, Router } from '@angular/router';
 import { HTTP_PROVIDERS } from '@angular/http';
 import { TransactionsComponent } from './+transactions/transactions.component';
+import { CurrentUserModel } from './shared/services/current-user.model';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -12,8 +14,16 @@ import { TransactionsComponent } from './+transactions/transactions.component';
   selector: 'app',
   viewProviders:  [HTTP_PROVIDERS],
   templateUrl: 'app.component.html',
-  directives: [ROUTER_DIRECTIVES]
+  styleUrls: ['app.css'],
+  directives: [ROUTER_DIRECTIVES, NgIf],
+  providers: [CurrentUserModel]
 })
 export class AppComponent {
-  constructor() {}
+  constructor(public currentUser: CurrentUserModel,
+    public router: Router) {}
+
+  public logOut(): void {
+    localStorage.clear();
+    this.router.navigate(['/']);
+  }
 }

@@ -24,10 +24,12 @@ export class UserLoginComponent {
 
   public onSubmit(form: any, valid: boolean): void {
     this.userService.login(form).subscribe((data: any) => {
-      this.userService.setCurrentUser(data);
+      localStorage.setItem('firebaseUrl', data.user.firebaseUrl);
+      localStorage.setItem('firebaseToken', data.user.firebaseToken);
+      localStorage.setItem('auth_token', data.auth_token)
       this.router.navigate(['/transactions']);
     }, (error) => {
-      console.log(error);
+      console.error(error);
     });
   }
 }

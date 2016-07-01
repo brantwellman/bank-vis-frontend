@@ -4,7 +4,6 @@ import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
 
 import { Store, provideStore } from '@ngrx/store';
-import { currentUser } from './shared/services/user.service';
 import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { AppComponent } from './app.component';
 
@@ -15,7 +14,6 @@ if ('<%= ENV %>' === 'prod') { enableProdMode(); }
  * @see https://angular.io/docs/ts/latest/api/platform-browser-dynamic/index/bootstrap-function.html
  */
 bootstrap(AppComponent, [
-  provideStore({ currentUser: currentUser }),
   disableDeprecatedForms(),
   provideForms(),
   APP_ROUTER_PROVIDERS,

@@ -1,1 +1,18 @@
+<nav class="navbar">
+  <a class="navbar-brand" [routerLink]="['/']">Home</a>
+  <ul class="nav navbar-nav">
+    <li class="nav-item" *ngIf="!currentUser.isLoggedIn()">
+      <a class="nav-link" [routerLink]="['/users/login']">Login</a>
+    </li>
+    <li class="nav-item" *ngIf="currentUser.isLoggedIn()">
+      <a class="nav-link" [routerLink]="['/transactions']">Transactions</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="['/instructions']">Instructions</a>
+    </li>
+    <li class="nav-item" *ngIf="currentUser.isLoggedIn()">
+      <a class="logout-link nav-link" (click)="logOut()">Logout</a>
+    </li>
+  </ul>
+</nav>
 <router-outlet></router-outlet>
