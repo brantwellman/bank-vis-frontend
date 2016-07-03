@@ -10,11 +10,11 @@ export const TransactionsRoutes: RouterConfig = [
     component: TransactionsComponent
   },
   {
-    path: 'transactions/:month',
-    component: TransactionsShowComponent
-  },
-  {
     path: 'transactions/new',
     component: NewTransactionsComponent
+  },
+  {
+    path: 'transactions/:month',
+    component: TransactionsShowComponent
   }
 ];

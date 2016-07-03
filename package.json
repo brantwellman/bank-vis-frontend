@@ -1,9 +1,9 @@
 {
-  "name": "bank-vis",
+  "name": "bank-vis-frontend",
   "version": "0.0.0",
   "description": "A Simple Visualization for Transaction Data from Simple Finance with Angular2 and Rails",
   "repository": {
-    "url": "https://github.com/rossedfort/bank-vis"
+    "url": "https://github.com/rossedfort/bank-vis-frontend"
   },
   "scripts": {
     "build.dev": "gulp build.dev --color",

@@ -30,7 +30,7 @@ export class UserNewComponent {
 
   public onSubmit(form: any): void {
     this.userService.create(form).subscribe((data: any) => {
-      console.log(data);
+      this.router.navigate(['/']);
     }, (error) => {
       console.log(error);
     });
