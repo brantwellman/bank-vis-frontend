@@ -1,14 +1,21 @@
+<div *ngIf="alert" class="alert alert-danger" role="alert">
+  <strong>Rats!</strong> looks like we didn't recognize you, please try again
+</div>
 <div class="container text-center">
-  <h1>User Login</h1>
+  <h1>Log-in!</h1>
 </div>
 <div class="container">
-  <form #f="ngForm" novalidate>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="email" class="form-control" name="email" [(ngModel)]="user.email" #name="ngModel">
-      <label>Password</label>
-      <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #name="ngModel">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 login-form">
+      <form #f="ngForm" novalidate>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="user.email" #name="ngModel">
+          <label>Password</label>
+          <input type="password" class="form-control" name="password" [(ngModel)]="user.password" #name="ngModel">
+        </div>
+        <button type="submit" (click)="onSubmit(f.value, f.valid)" class="btn btn-default">Submit</button>
+      </form>
     </div>
-    <button type="submit" (click)="onSubmit(f.value, f.valid)" class="btn btn-default">Submit</button>
-  </form>
+  </div>
 </div>

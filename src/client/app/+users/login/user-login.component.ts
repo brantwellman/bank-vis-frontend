@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { UserService } from '../../shared/services/user.service';
 
@@ -14,6 +15,7 @@ import { UserService } from '../../shared/services/user.service';
 export class UserLoginComponent {
   public user: any;
   public form: any;
+  public alert: string;
 
   constructor(private router: Router, public userService: UserService) {
     this.user = {
@@ -29,7 +31,7 @@ export class UserLoginComponent {
       localStorage.setItem('auth_token', data.auth_token)
       this.router.navigate(['/transactions']);
     }, (error) => {
-      console.error(error);
+      this.alert = error._body;
     });
   }
 }

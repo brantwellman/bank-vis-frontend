@@ -1,0 +1,7 @@
+<nav class="navbar">
+  <ul class="nav navbar-nav months">
+    <li class="nav-item" *ngFor="let month of months">
+      <a class="nav-link" [routerLink]="['/transactions/' + month]">{{month.toUpperCase()}}</a>
+    </li>
+  </ul>
+</nav>

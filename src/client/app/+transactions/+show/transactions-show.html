@@ -1,24 +1,2 @@
-<div class="container">
-  <table class="table table-striped table-bordered">
-    <thead class="thead-default">
-      <th (click)="sortByDate()" class="text-center">Date</th>
-      <th (click)="sortByAmount()" class="text-center">Amount</th>
-      <th class="text-center">Category</th>
-      <th class="text-center">SubCategory</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let trans of transactions">
-        <td>{{trans.times.when_recorded | date}}</td>
-        <td [ngClass]="{pos: trans.bookkeeping_type === 'credit', neg: trans.bookkeeping_type === 'debit'}">{{format(trans.amounts.amount) | currency:'USD'}}</td>
-        <td>{{trans.categories[0].name}}</td>
-        <td>{{trans.categories[0].folder}}</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>{{format(total) | currency:'USD'}}</td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<month-nav [months]="months"></month-nav>
+<list *ngIf="transactions" [transactions]="transactions"></list>

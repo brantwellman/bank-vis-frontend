@@ -15,6 +15,11 @@ export class TransactionsService implements OnInit {
     return this.http.get(url).map((res) => res.json());
   }
 
+  public getTransactionsIndex(firebaseUrl: string, firebaseToken: string): Observable<any> {
+    let url: string = `${firebaseUrl}transactions.json?auth=${firebaseToken}`;
+    return this.http.get(url).map((res) => res.json());
+  }
+
   public post(firebaseUrl:string, firebaseToken:string, formData: any): Observable<any> {
     let url: string = `${firebaseUrl}transactions/${formData.month.toLowerCase()}/.json?auth=${firebaseToken}`;
     let body: any = formData.transactions;

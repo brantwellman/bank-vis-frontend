@@ -7,7 +7,7 @@ import { NewTransactionsComponent } from './+new/new-transactions.component';
 export const TransactionsRoutes: RouterConfig = [
   {
     path: 'transactions',
-    component: TransactionsComponent
+    component: TransactionsComponent,
   },
   {
     path: 'transactions/new',
